@@ -60,5 +60,5 @@ function login() {
     }
 
     localStorage.setItem("usuarioLogado", username);
-    window.location.href = "tela2Ia.html";
+    window.location.href = "telaInicial.html";
 }
