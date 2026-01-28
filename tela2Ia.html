@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco Vermelho - Digital</title>
+    <link rel="stylesheet" href="tela2Ia.css">
+    <!-- Importando Chart.js para os gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- TELA 1: LOGIN -->
+    <div id="login-screen">
+        <div class="login-card">
+            <div class="user-icon-circle">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+            <h2 style="margin-bottom: 20px; color: #333;">Banco Vermelho</h2>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Usuário" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Senha" required>
+                </div>
+                <button type="submit" class="btn-login">ENTRAR</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TELA 2: DASHBOARD -->
+    <div id="dashboard-screen">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">BANCO VERMELHO</div>
+            <div class="user-info">
+                <div class="balance-box">
+                    <div class="balance-label">Saldo Disponível</div>
+                    <div class="balance-value">R$ 15.430,50</div>
+                </div>
+                <button class="btn-logout" onclick="logout()">Sair</button>
+            </div>
+        </div>
+
+        <!-- Navegação -->
+        <div class="nav-bar">
+            <div class="nav-item" onclick="showTab(this)">Home</div>
+            <div class="nav-item active" onclick="showTab(this)">Conta digital</div>
+            <div class="nav-item" onclick="showTab(this)">Pix</div>
+            <div class="nav-item" onclick="showTab(this)">Transferências</div>
+            <div class="nav-item" onclick="showTab(this)">Pagamentos</div>
+            <div class="nav-item" onclick="showTab(this)">Investimentos</div>
+            <div class="nav-item" onclick="showTab(this)">Folha</div>
+            <div class="nav-item" onclick="showTab(this)">Serviços</div>
+        </div>
+
+        <!-- Conteúdo -->
+        <div class="main-content">
+            
+            <!-- Widget Saldo (Topo) -->
+            <div class="card saldo-widget">
+                <div>
+                    <p style="color: #666;">Olá, <span id="display-user" style="color: #333; font-weight: bold;">Usuário</span></p>
+                    <h1>R$ 15.430,50</h1>
+                    <p>Conta Corrente ***-1234</p>
+                </div>
+            </div>
+
+            <!-- Widget Extrato -->
+            <div class="card">
+                <div class="card-title">Extrato</div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 13px;">
+                    <span>Saldo: <strong>R$ 15.430,50</strong></span>
+                    <span style="color: #999;">Bloqueados: R$ 0,00</span>
+                </div>
+                <div style="display: flex; gap: 5px; margin-bottom: 15px;">
+                    <button style="flex:1; padding: 5px; border: 1px solid #ddd; background: #f9f9f9; border-radius: 3px; cursor: pointer; font-size: 12px;">Entrada</button>
+                    <button style="flex:1; padding: 5px; border: 1px solid #ddd; background: #f9f9f9; border-radius: 3px; cursor: pointer; font-size: 12px;">Saída</button>
+                </div>
+                <ul style="list-style: none; font-size: 13px;">
+                    <li class="transaction-item"><span>PIX Recebido</span><span class="positive">+ R$ 500,00</span></li>
+                    <li class="transaction-item"><span>Compra Mercado</span><span class="negative">- R$ 120,30</span></li>
+                    <li class="transaction-item"><span>Transferência</span><span class="negative">- R$ 200,00</span></li>
+                </ul>
+            </div>
+
+            <!-- Widget Aprovações -->
+            <div class="card">
+                <div class="card-title">Aprovações</div>
+                <div style="display: flex; gap: 5px; margin-bottom: 15px; font-size: 11px;">
+                    <span style="padding: 3px 8px; background: #f5f5f5; border-radius: 3px;">Débito Automático</span>
+                    <span style="padding: 3px 8px; background: #f5f5f5; border-radius: 3px;">Pagamentos</span>
+                    <span style="padding: 3px 8px; background: #f5f5f5; border-radius: 3px;">Pix</span>
+                </div>
+                <div style="text-align: center; color: #999; padding: 20px 0;">
+                    Nenhuma pendência no momento.
+                    <div style="margin-top: 10px; color: var(--primary-red); cursor: pointer; font-weight: bold;">Transferências</div>
+                </div>
+            </div>
+
+            <!-- Widget Pagamentos -->
+            <div class="card">
+                <div class="card-title">Pagamentos & Pix</div>
+                <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Pague boletos e tributos</p>
+                <div style="display: flex; gap: 5px; margin-bottom: 10px;">
+                    <input type="text" placeholder="Código de barras" style="flex:1; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px;">
+                    <button style="padding: 8px 12px; background: #eee; border: none; border-radius: 4px; cursor: pointer;">Ler</button>
+                </div>
+                <div style="background: #fff3e0; border-left: 3px solid #ff9800; padding: 10px; border-radius: 4px; margin-bottom: 15px; font-size: 11px; color: #555;">
+                    <strong>Atenção:</strong> Pagamentos de tributos exigem código de barras.
+                </div>
+                <button style="width: 100%; padding: 10px; background: var(--primary-red); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Continuar</button>
+                
+                <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span style="font-size: 13px; color: #666;">Valor a pagar</span>
+                        <span style="font-size: 18px; font-weight: bold; color: var(--primary-red);">R$ 0,00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 11px; color: #999;">
+                        <span>Chave Pix</span>
+                        <span style="color: var(--primary-red); cursor: pointer;">Meus favoritos</span>
+                    </div>
+                    <div style="font-size: 10px; color: #bbb; margin-top: 2px;">CPF, Celular ou E-mail</div>
+                </div>
+            </div>
+
+            <!-- WIDGET DE INVESTIMENTOS (COM GRÁFICOS) -->
+            <div class="card invest-widget">
+                <div class="card-title">Seus Investimentos</div>
+                
+                <div class="charts-grid">
+                    <!-- Gráfico Bitcoin -->
+                    <div class="chart-box">
+                        <h4 class="btc-color">Bitcoin (BTC)</h4>
+                        <div style="height: 150px; position: relative;">
+                            <canvas id="btcChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Gráfico Selic -->
+                    <div class="chart-box">
+                        <h4 class="selic-color">Selic (Renda Fixa)</h4>
+                        <div style="height: 150px; position: relative;">
+                            <canvas id="selicChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-action" onclick="alert('Abrindo carteira de investimentos...')">Ver Carteira</button>
+                    <button class="btn-action" onclick="alert('Funcionalidade de Resgate')">Resgatar</button>
+                    <button class="btn-action" onclick="alert('Enviando Pix do saldo investido')">Pix Investimento</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+<script src="tela2Ia.js"></script>
+</html>

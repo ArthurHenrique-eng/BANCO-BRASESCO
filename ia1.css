@@ -1,0 +1,117 @@
+  /* --- RESET E CONFIGURAÇÕES GERAIS --- */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* --- VARIÁVEIS DE COR (VERMELHO E BRANCO) --- */
+:root {
+    --primary-red: #d32f2f; /* Vermelho forte */
+    --light-red: #ffebee;   /* Fundo suave */
+    --dark-red: #b71c1c;    /* Botões/Hover */
+    --white: #ffffff;
+    --text-dark: #212121;
+    --border-color: #e0e0e0;
+}
+
+/* --- TELA DE LOGIN (PRINT 1) --- */
+#login-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    transition: opacity 0.5s ease;
+}
+
+.login-card {
+    background: var(--white);
+    width: 380px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+    position: relative;
+}
+
+.user-icon-circle {
+    width: 80px;
+    height: 80px;
+    background: var(--light-red);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--primary-red);
+}
+
+.user-icon-circle svg {
+    width: 40px;
+    height: 40px;
+    fill: var(--primary-red);
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-red);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-red);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.btn-cadastrar {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-red);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background: var(--dark-red);
+}

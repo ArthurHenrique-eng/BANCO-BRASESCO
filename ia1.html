@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco Vermelho - Digital</title>
+    <link rel="stylesheet" href="ia1.css">
+    <!-- Importando Chart.js para os gráficos -->
+
+
+</head>
+<body>
+
+    <!-- ==================== TELA 1: LOGIN ==================== -->
+    <div id="login-screen">
+        <div class="login-card">
+            <div class="user-icon-circle">
+                <!-- Ícone SVG de Usuário -->
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </div>
+            <h2 style="margin-bottom: 20px; color: var(--text-dark);">Bem-vindo!</h2>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <label>Usuário</label>
+                    <input type="text" id="username" placeholder="Digite seu usuário" required>
+                </div>
+                <div class="input-group">
+                    <label>Senha</label>
+                    <input type="password" id="password" placeholder="Digite sua senha" required>
+                </div>
+                <button type="button" class="btn-login" onclick="login()">Entrar</button>
+                <button type="login" class="btn-cadastrar" onclick="salvar()">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="ia1.js"></script>
+</html>
